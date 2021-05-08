@@ -11,7 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    UserNoticeMailer.send_signup_email(@user).deliver_now unless resource.invalid?
+    super
+    UserNoticeMailer.send_signup_email(current_user).deliver
   end
 
   # GET /resource/edit
