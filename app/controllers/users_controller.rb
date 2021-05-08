@@ -29,11 +29,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def send_mail
-    @mail = UserNoticeMailer.send_signup_mail.deliver
-    render :show
-  end
-
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
