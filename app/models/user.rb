@@ -4,7 +4,7 @@ class User < ApplicationRecord
   after_create :send_welcome_mail
 
   def send_welcome_mail
-    UserNoticeMailer.send_signup_email(self).deliver
+    ThanksMailer.send_signup_email(self).deliver
   end
 
   devise :database_authenticatable, :registerable,
